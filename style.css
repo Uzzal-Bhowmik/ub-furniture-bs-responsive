@@ -1,0 +1,90 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+#home {
+    padding-top: 100px;
+    height: 600px;
+}
+.top-pic {
+    transform: scale(1.1);
+    filter: drop-shadow(10px 14px 3px lightgray);
+    margin-left: 60px;
+}
+.nav-item {
+    border-bottom: 2px solid transparent;
+    transition: all .2s ease-in-out;
+}
+.nav-item:hover {
+    border-bottom: 2px solid rgb(248, 178, 2);
+}
+.nav-link {
+    font-family: 'Unbounded', cursive;
+}
+.dropdown-menu-right {
+    right: -30px;
+    left: auto;
+    top: 65px;
+}
+.top-buttons button {
+    border-radius: 20px;
+}
+.clients {
+    margin: 70px 0 58px;
+}
+.bi {
+    font-size: 22px !important;
+}
+.product, .product>img {
+    transition: all .4s ease-in-out;
+}
+.product:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;    
+}
+.product:hover img {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.testimonial {
+    margin-top: 150px !important;
+    margin-bottom: 150px !important;
+}
+.carousel-indicators {
+    bottom: -20px !important;
+}
+.carousel-indicators button {
+    width: 34px !important;
+    height: 4px !important;
+    margin-left: 6px !important;
+}
+.user-review {
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+.submit-button {
+    background-image: linear-gradient(to bottom, #FF589B 0%, #FF136F 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 25px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.contact {
+    background: #fceae8;
+}
+.submit-button:hover {
+    box-shadow: 5px 5px 10px lightcoral;
+}
+#loader {
+    color: white;
+    background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);
+    font-weight: 500px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
