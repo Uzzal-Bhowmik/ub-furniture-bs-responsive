@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'Poppins', sans-serif;
 }
@@ -21,9 +24,9 @@ body {
     font-family: 'Unbounded', cursive;
 }
 .dropdown-menu-right {
-    right: -30px;
-    left: auto;
-    top: 65px;
+    right: -30px !important;
+    left: auto !important;
+    top: 65px !important;
 }
 .top-buttons button {
     border-radius: 20px;
