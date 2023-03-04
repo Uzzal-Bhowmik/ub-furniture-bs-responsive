@@ -37,8 +37,8 @@
   <body class="py-5">
     <header>
       <!-- navigation bar start  -->
-      <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-light animate__animated animate__bounceInDown">
-        <div class="container-md">
+      <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-light animate__animated animate__bounceInDown" id="navigation-bar">
+        <div class="container-md" id="nav-container">
           <a class="navbar-brand" href="#">
             <img src="images/Logo.png" alt="" />
           </a>
@@ -55,7 +55,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a
                   class="nav-link text-dark"
                   aria-current="page"
@@ -91,7 +91,7 @@
                   ></i>
                 </a>
 
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#" cart-items="0" id="cart-icon">
                   <i
                     class="bi bi-bag-plus text-dark fw-bold me-4 me-md-3 fs-5"
                   ></i>
@@ -288,7 +288,7 @@
                 "
               >
                 <center>
-                  <button class="btn btn-warning rounded-pill pe-1">
+                  <button class="btn btn-warning rounded-pill pe-1 add-to-cart-btn">
                     Add To Cart
                     <i
                       class="bi bi-cart3 rounded-pill bg-danger px-3 py-1 text-white fs-6"
@@ -322,7 +322,7 @@
                 "
               >
                 <center>
-                  <button class="btn btn-warning rounded-pill pe-1">
+                  <button class="btn btn-warning rounded-pill pe-1 add-to-cart-btn">
                     Add To Cart
                     <i
                       class="bi bi-cart3 rounded-pill bg-danger px-3 py-1 text-white fs-6"
@@ -356,7 +356,7 @@
                 "
               >
                 <center>
-                  <button class="btn btn-warning rounded-pill pe-1">
+                  <button class="btn btn-warning rounded-pill pe-1 add-to-cart-btn">
                     Add To Cart
                     <i
                       class="bi bi-cart3 rounded-pill bg-danger px-3 py-1 text-white fs-6"
@@ -390,7 +390,7 @@
                 "
               >
                 <center>
-                  <button class="btn btn-warning rounded-pill pe-1">
+                  <button class="btn btn-warning rounded-pill pe-1 add-to-cart-btn">
                     Add To Cart
                     <i
                       class="bi bi-cart3 rounded-pill bg-danger px-3 py-1 text-white fs-6"
@@ -424,7 +424,7 @@
                 "
               >
                 <center>
-                  <button class="btn btn-warning rounded-pill pe-1">
+                  <button class="btn btn-warning rounded-pill pe-1 add-to-cart-btn">
                     Add To Cart
                     <i
                       class="bi bi-cart3 rounded-pill bg-danger px-3 py-1 text-white fs-6"
@@ -458,7 +458,7 @@
                 "
               >
                 <center>
-                  <button class="btn btn-warning rounded-pill pe-1">
+                  <button class="btn btn-warning rounded-pill pe-1 add-to-cart-btn">
                     Add To Cart
                     <i
                       class="bi bi-cart3 rounded-pill bg-danger px-3 py-1 text-white fs-6"
@@ -803,10 +803,51 @@
 
     </main>
 
+    <!-- custom javascript -->
     <script>
+      // loader
       setTimeout(function () {
         document.getElementById("loader").style.display = "none";
       }, 4000);
+
+      // change nav on scroll
+      let navbar = document.getElementById("navigation-bar");
+      let navContainer = document.getElementById("nav-container");
+      window.onscroll = () => {
+        if(scrollY > 50) {
+          navbar.style.padding = "0";
+          navContainer.style.width = "88%";
+        }
+        else {
+          navbar.style.removeProperty("padding");
+          navContainer.style.removeProperty("width");
+        }
+      }
+
+      // navbar link active indicator
+      let navItem = document.getElementsByClassName("nav-item");
+
+      for(let item of navItem) {
+        item.addEventListener("click", ()=> {
+          for(let singleItem of navItem) {
+            if(singleItem.classList.contains("active")) {
+              singleItem.classList.remove("active");
+            }
+          }
+          item.classList.add("active");
+        })
+      }
+
+      //add to cart 
+      let cartBtn = document.getElementsByClassName("add-to-cart-btn");
+
+      let cartItem = document.getElementById("cart-icon");
+
+      for(let btn of cartBtn) {
+        btn.addEventListener("click", ()=> {
+          cartItem.setAttribute("cart-items", parseInt(cartItem.getAttribute("cart-items"))+1)
+        })
+      }
     </script>
 
     <!-- bootstrap script  -->

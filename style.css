@@ -17,16 +17,37 @@ body {
     border-bottom: 2px solid transparent;
     transition: all .2s ease-in-out;
 }
-.nav-item:hover {
+.nav-item.active {
     border-bottom: 2px solid rgb(248, 178, 2);
 }
 .nav-link {
     font-family: 'Unbounded', cursive;
 }
+#cart-icon {
+    /* border: 1px solid palevioletred; */
+    position: relative;
+}
+#cart-icon::before {
+    font-size: 10px;
+    font-weight: bolder;
+    content: attr(cart-items);
+    width: 16px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 50%;
+    color: white;
+    background-color: red;
+    position: absolute;
+    left: 0px;
+    top: 11px;
+}
 .dropdown-menu-right {
     right: -30px !important;
     left: auto !important;
-    top: 65px !important;
+    top: 52px !important;
+}
+#navigation-bar, #nav-container {
+    transition: all .4s ease-in-out;
 }
 .top-buttons button {
     border-radius: 20px;
