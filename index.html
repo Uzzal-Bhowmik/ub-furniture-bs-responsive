@@ -35,6 +35,16 @@
   </head>
 
   <body class="py-5">
+
+      <!-- add to cart msg -->
+      <div class="cart-msg py-2 animate__animated animate__slideInRight" id="cart-msg">
+        <div>Successfully Added To Cart!</div>
+        <div class="row w-100 pt-2 fs-4 mx-auto text-dark">
+          <div class="col-md-8"></div>
+          <div class="col-md-4">$ <span></span></div>
+        </div>
+      </div>
+
     <header>
       <!-- navigation bar start  -->
       <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-light animate__animated animate__bounceInDown" id="navigation-bar">
@@ -843,11 +853,50 @@
 
       let cartItem = document.getElementById("cart-icon");
 
+      let cartMsg = document.getElementById("cart-msg");
+
+      let cartMsgName = cartMsg.children[1].children[0];
+      let cartMsgPrice = cartMsg.children[1].children[1].children[0];
+
       for(let btn of cartBtn) {
-        btn.addEventListener("click", ()=> {
+        btn.addEventListener("click", (e)=> {
+          // increase cart number
           cartItem.setAttribute("cart-items", parseInt(cartItem.getAttribute("cart-items"))+1)
+
+          // change cart icon
+          
+          e.target.children[0].classList.remove("bi-cart3");
+          e.target.children[0].classList.add("bi-check2-circle");
+
+          // setTimeout(() => {
+          //   e.target.children[0].classList.remove("bi-check2-circle");
+            
+          //   e.target.children[0].classList.add("bi-cart3");
+          // }, 2000);
+
+          // show add to cart msg
+
+          let item = e.target.parentElement.parentElement;
+          let itemName = item.children[1].innerText;
+          let itemPrice = item.children[2].innerText.slice(1,6);
+
+          cartMsgName.innerText = "";
+          cartMsgPrice.innerText= "";
+          cartMsgName.innerText = itemName;
+          cartMsgPrice.innerText= itemPrice;
+
+
+          cartMsg.style.display = "block";
+          setTimeout(() => {
+            e.target.children[0].classList.remove("bi-check2-circle");
+            
+            e.target.children[0].classList.add("bi-cart3");
+            cartMsg.style.display = "none";
+          }, 4000);
         })
       }
+      
+
     </script>
 
     <!-- bootstrap script  -->
