@@ -27,9 +27,6 @@ i{
 .nav-link {
     font-family: 'Unbounded', cursive;
 }
-#cart-msg {
-    display: none;
-}
 #cart-icon {
     position: relative;
 }
@@ -77,6 +74,13 @@ i{
 .add-to-cart-btn {
     transition: all .3s ease !important;
 }
+#cart-msg-container {
+    position: sticky;
+    z-index: 999;
+    top: 100px;
+    left: 1000px;
+    width: fit-content;
+}
 .cart-msg {
     width: 400px;
     height: 100px;
@@ -85,11 +89,6 @@ i{
     color: rgb(21, 19, 19);
     font-weight: bolder;
     text-align: center;
-    position: sticky;
-    z-index: 999;
-    top: 100px;
-    left: 1000px;
-    /* right: 100px; */
 }
 .testimonial {
     margin-top: 150px !important;
