@@ -30,19 +30,19 @@ i{
 #cart-icon {
     position: relative;
 }
-#cart-icon::before {
+#cart-icon-input {
     font-size: 10px;
     font-weight: bolder;
-    content: attr(cart-items);
-    width: 16px;
-    padding-left: 3px;
-    padding-right: 3px;
+    width: 20px;
+    text-align: center;
     border-radius: 50%;
     color: white;
     background-color: red;
+    border: none;
+    outline: none;
     position: absolute;
-    left: 0px;
-    top: 11px;
+    left: -4px;
+    top: 23%;
 }
 .dropdown-menu-right {
     right: -30px !important;

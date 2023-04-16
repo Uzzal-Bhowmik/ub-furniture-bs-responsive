@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Ramon Tool",
+    "price": "66",
+    "image": "./images/Product_Image_01-removebg-preview.png"
+  },
+  {
+    "name": "Flexform",
+    "price": "90",
+    "image": "./images/Product_Image_02-removebg-preview.png"
+  },
+  {
+    "name": "Paroda",
+    "price": "80",
+    "image": "./images/Product_Image_03-removebg-preview.png"
+  },
+  {
+    "name": "Taknion",
+    "price": "30",
+    "image": "./images/Product_Image_04-removebg-preview.png"
+  },
+  {
+    "name": "Amora",
+    "price": "56",
+    "image": "./images/Product_Image_05-removebg-preview.png"
+  },
+  {
+    "name": "Liquid Contract",
+    "price": "90",
+    "image": "./images/Product_Image_06-removebg-preview.png"
+  }
+]

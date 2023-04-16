@@ -94,7 +94,14 @@
                   ></i>
                 </a>
 
-                <a class="nav-link" href="#" cart-items="0" id="cart-icon">
+                <a
+                  class="nav-link"
+                  href="cart.html"
+                  target="_blank"
+                  id="cart-icon"
+                  style="position: relative;"
+                >
+                  <input type="text" id="cart-icon-input" readonly value="0" />
                   <i
                     class="bi bi-bag-plus text-dark fw-bold me-4 me-md-3 fs-5"
                   ></i>
@@ -122,7 +129,7 @@
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">My Cart</a>
+                  <a class="dropdown-item" href="cart.html">My Cart</a>
                   <a class="dropdown-item" href="#">Favourites</a>
                   <a class="dropdown-item" href="#">Order History</a>
                   <a class="dropdown-item" href="#">Log Out</a>
@@ -863,80 +870,7 @@
     </main>
 
     <!-- custom javascript -->
-    <script>
-      // loader
-      setTimeout(function () {
-        document.getElementById("loader").style.display = "none";
-      }, 4000);
-
-      // change nav on scroll
-      let navbar = document.getElementById("navigation-bar");
-      let navContainer = document.getElementById("nav-container");
-      window.onscroll = () => {
-        if (scrollY > 50) {
-          navbar.style.padding = "0";
-          navContainer.style.width = "88%";
-        } else {
-          navbar.style.removeProperty("padding");
-          navContainer.style.removeProperty("width");
-        }
-      };
-
-      // navbar link active indicator
-      let navItem = document.getElementsByClassName("nav-item");
-
-      for (let item of navItem) {
-        item.addEventListener("click", () => {
-          for (let singleItem of navItem) {
-            if (singleItem.classList.contains("active")) {
-              singleItem.classList.remove("active");
-            }
-          }
-          item.classList.add("active");
-        });
-      }
-
-      //add to cart
-      let cartBtn = document.getElementsByClassName("add-to-cart-btn");
-
-      let cartItem = document.getElementById("cart-icon");
-
-      for (let btn of cartBtn) {
-        btn.addEventListener("click", (e) => {
-          // increase cart number
-          cartItem.setAttribute(
-            "cart-items",
-            parseInt(cartItem.getAttribute("cart-items")) + 1
-          );
-
-          // change cart icon
-          e.target.children[0].classList.remove("bi-cart3");
-          e.target.children[0].classList.add("bi-check2-circle");
-
-          // added to cart popup
-          let cartMsgCon = document.getElementById("cart-msg-container");
-          cartMsgCon.innerHTML += `<div     class="cart-msg py-2 mt-2 " id="cart-msg">
-          <div>Successfully Added To Cart!</div>
-          <div class="row w-100 pt-2 fs-4 mx-auto text-dark">
-            <div class="col-md-8">${
-              e.target.closest("div.product").children[1].innerText
-            }</div>
-            <div class="col-md-4">$ <span>${e.target
-              .closest("div.product")
-              .children[2].innerText.slice(1, 6)}</span></div>
-          </div>
-        </div>`;
-
-          setTimeout(() => {
-            e.target.children[0].classList.remove("bi-check2-circle");
-
-            e.target.children[0].classList.add("bi-cart3");
-
-            document.querySelector(".cart-msg").remove();
-          }, 4000);
-        });
-      }
-    </script>
+    <script src="script.js"></script>
 
     <!-- bootstrap script  -->
     <script
