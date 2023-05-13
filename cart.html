@@ -11,21 +11,109 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- bootstrap icons  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Unbounded:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Unbounded&display=swap"
       rel="stylesheet"
     />
-    <title>Cart</title>
+
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>My Cart</title>
 
     <style>
+      body {
+        position: relative;
+        min-height: 100vh;
+      }
+      /*********** index.html styles ************/
+      i {
+        pointer-events: none;
+      }
+      header {
+        height: 100px;
+      }
+      .nav-item {
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s ease-in-out;
+        margin-right: 1px;
+      }
+      .nav-item.active,
+      .nav-item:hover {
+        border-bottom: 2px solid rgb(248, 178, 2);
+      }
+      .nav-link {
+        font-family: "Unbounded", cursive;
+      }
+      #cart-icon {
+        position: relative;
+      }
+      #cart-icon-input {
+        font-size: 10px;
+        font-weight: bolder;
+        width: 20px;
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+        background-color: red;
+        border: none;
+        outline: none;
+        position: absolute;
+        left: -4px;
+        top: 23%;
+      }
+      .dropdown-menu-right {
+        right: -30px !important;
+        left: auto !important;
+        top: 52px !important;
+      }
+      #navigation-bar,
+      #nav-container {
+        transition: all 0.4s ease-in-out;
+      }
+      .top-buttons button {
+        border-radius: 20px;
+      }
+      .nav-cart-icon {
+        font-size: 22px !important;
+      }
+      .add-to-cart-btn {
+        transition: all 0.3s ease !important;
+      }
+
+      footer {
+        /* position: fixed; */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-top: 100px;
+      }
+      #footer-name {
+        font-family: "Unbounded", cursive !important;
+        border-bottom: 1px dashed;
+        letter-spacing: 2px;
+        margin-left: 5px;
+        text-decoration: none !important;
+        color: gray;
+      }
+
+      /* cart.html styles */
       .body {
         display: grid;
         grid-template-columns: 75% 25%;
         grid-column-gap: 0;
+      }
+
+      .title {
+        border-bottom: 1px dashed;
+        margin-left: 15px;
       }
       #quan-box {
         width: 30px;
@@ -45,7 +133,7 @@
 
       #table-and-button {
         position: sticky;
-        top: 0;
+        top: 10px;
         left: 0;
         box-shadow: 0px 2px 11px lightgray;
         padding: 10px;
@@ -55,36 +143,203 @@
     </style>
   </head>
   <body>
-    <section class="body py-4">
-      <div id="container" class="row g-4 w-100 mx-auto"></div>
-      <div id="calculation" class="p-2">
-        <div id="table-and-button">
-          <table
-            class="w-100 mx-auto text-center table table-striped table-hover table-bordered border-info mb-1"
-          >
-            <thead>
-              <th>
-                Product
-              </th>
-              <th>
-                Quantity
-              </th>
-              <th>
-                Price
-              </th>
-            </thead>
-            <tbody id="calc-table" class="fs-5 fw-light"></tbody>
-          </table>
-
-          <!-- place order button -->
-          <a href="confirmation.html" class="text-decoration-none">
-            <button class="btn btn-success d-block mx-auto w-100 fw-bold fs-5">
-              Place Order
-            </button>
+    <header>
+      <!-- navigation bar start  -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light animate__animated animate__bounceInDown"
+        id="navigation-bar"
+      >
+        <div class="container-md" id="nav-container">
+          <a class="navbar-brand" href="#">
+            <img src="images/Logo.png" alt="" />
           </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-dark fw-semibold"
+                  aria-current="page"
+                  href="index.html#home"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-dark fw-semibold"
+                  href="index.html#products"
+                  >Products</a
+                >
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-dark fw-semibold" href="cart.html"
+                  >My Cart</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-dark fw-semibold"
+                  href="index.html#testimonial"
+                  >Reviews</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-semibold" href="#faqs">Faqs</a>
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link text-dark fw-semibold"
+                  href="index.html#contact"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item d-flex align-items-center border-0">
+                <a class="nav-link" href="#">
+                  <i
+                    class="bi bi-search text-dark fw-bold me-4 me-md-3 fs-5"
+                  ></i>
+                </a>
+
+                <a
+                  class="nav-link"
+                  href="cart.html"
+                  target="_blank"
+                  id="cart-icon"
+                  style="position: relative;"
+                >
+                  <input type="text" id="cart-icon-input" readonly value="0" />
+                  <i
+                    class="bi bi-bag-plus text-dark fw-bold me-4 me-md-3 fs-5 nav-cart-icon"
+                  ></i>
+                </a>
+              </li>
+
+              <li class="nav-item dropdown border-0">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    width="40px"
+                    height="40px"
+                    src="images/11zon_cropped.png"
+                    alt=""
+                  />
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right text-right"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="cart.html">My Cart</a>
+                  <a class="dropdown-item" href="#">Favourites</a>
+                  <a class="dropdown-item" href="#">Order History</a>
+                  <a class="dropdown-item" href="#">Log Out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- navigation bar end -->
+    </header>
+
+    <section>
+      <div>
+        <h2>
+          <span class="title"
+            ><i class="bi bi-cart-check fs-2 text-success"></i> Cart
+            Items:</span
+          >
+        </h2>
+      </div>
+      <div class="body py-4">
+        <div id="container" class="row g-4 w-100 mx-auto"></div>
+        <div id="calculation" class="p-2">
+          <div id="table-and-button">
+            <table
+              class="w-100 mx-auto text-center table table-bordered border-info mb-1"
+            >
+              <thead>
+                <th>
+                  Product
+                </th>
+                <th>
+                  Quantity
+                </th>
+                <th>
+                  Price
+                </th>
+              </thead>
+              <tbody id="calc-table" class="fs-5 fw-light"></tbody>
+            </table>
+
+            <!-- place order button -->
+            <a href="confirmation.html" class="text-decoration-none">
+              <button
+                class="btn btn-success d-block mx-auto w-100 fw-bold fs-5"
+                id="order-button"
+              >
+                Place Order
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- footer start  -->
+    <footer id="contact" class="pt-5 container">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="images/Logo.png" alt="" />
+        </div>
+        <div class="col-md-4 d-md-flex justify-content-between">
+          <h6 class="my-3 my-md-0">About</h6>
+          <h6 class="mb-3 mb-md-0">Product</h6>
+          <h6 class="mb-3 mb-md-0">Services</h6>
+          <h6 class="mb-3 mb-md-0">Contact</h6>
+        </div>
+        <div class="col-md-4 d-md-flex justify-content-end">
+          <i class="bi bi-facebook me-3 fs-5"></i>
+          <i class="bi bi-instagram me-3 fs-5"></i>
+          <i class="bi bi-youtube fs-5"></i>
+        </div>
+      </div>
+      <hr class="mb-5" />
+      <div class="text-center">
+        <p class="text-muted my-5 fw-bold">
+          Made With ❤️ by
+          <a
+            href="https://uzzal.netlify.app"
+            target="_blank"
+            id="footer-name"
+            class="text-decoration-none text-dark text-muted border-bottom border-2"
+            >Uzzal Bhowmik
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- footer end -->
 
     <script>
       // fetching items database
@@ -97,6 +352,20 @@
         let addedItemList = [];
 
         let keys = Object.keys(localStorage);
+
+        // if no data in localStorage
+        if (keys.length == false) {
+          let container = document.getElementById("container");
+          let calcTable = document.getElementById("calculation");
+          container.innerHTML = `
+            <h1 class="text-danger text-center pt-3"><i class="bi bi-cart-x-fill"></i> No Items Found :(</h1>
+          `;
+          calcTable.innerHTML = "";
+
+          return;
+        }
+
+        // if data is present in localStorage
         for (let key of keys) {
           itemDb.forEach((item) => {
             if (item.name == key) {
@@ -106,8 +375,6 @@
             }
           });
         }
-
-        console.log(addedItemList);
 
         // display cart items
         addedItemList.forEach((item) => {
@@ -188,9 +455,12 @@
           }
 
           calcTable.innerHTML += `
-              <tr class="text-end">
-                <td>Total: </td>
-                <td colspan="2">$ ${totalPrice}</td>
+              <tr class="border border-0 border-white ">
+              <td colspan=3>-------------------------</td>  
+              </tr>
+              <tr class="text-end border border-0 border-white">
+                <td>Total = </td>
+                <td colspan=2>$ ${totalPrice}</td>
               </tr>
             `;
           // console.log(calcTable.innerHTML);
@@ -234,6 +504,13 @@
               updateCalcTable();
             });
           }
+
+          // clearing localStorage after order placement
+          orderBtn = document.getElementById("order-button");
+          orderBtn.addEventListener("click", () => {
+            localStorage.clear();
+            location.reload("cart.html");
+          });
         }
       };
 
