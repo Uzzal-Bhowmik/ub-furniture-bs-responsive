@@ -42,7 +42,9 @@ const changeCartIconNum = () => {
   let localstorage = { ...localStorage };
 
   for (let key in localstorage) {
-    totalCartItem += parseInt(localStorage.getItem(key));
+    if (key === "Ramon Tool" || key === "Taknion" || key === "Amora" || key === "Liquid Contract" || key === "Flexform" || key === "Paroda") {
+      totalCartItem += parseInt(localStorage.getItem(key));
+    }
   }
   cartIconField.value = totalCartItem;
 };

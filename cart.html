@@ -437,15 +437,16 @@
 
           const localSto = { ...localStorage };
           for (key in localSto) {
-            // finding price
-            let price;
-            addedItemList.forEach((element) => {
-              if (element.name == key) {
-                price = element.price;
-              }
-            });
+            if (key === "Ramon Tool" || key === "Taknion" || key === "Amora" || key === "Liquid Contract" || key === "Flexform" || key === "Paroda") {
+              // finding price
+              let price;
+              addedItemList.forEach((element) => {
+                if (element.name == key) {
+                 price = element.price;
+                }
+              });
 
-            calcTable.innerHTML += `
+              calcTable.innerHTML += `
                 <tr>
                   <td>${key}</td>
                   <td>${localSto[key]}</td>
@@ -453,9 +454,10 @@
                 </tr>
               `;
 
-            // total price
-            totalPrice += price * localSto[key]; // localSto[key] is the quantity here
-          }
+              // total price
+              totalPrice += price * localSto[key]; // localSto[key] is the quantity here    
+            }
+           }
 
           calcTable.innerHTML += `
               <tr class="border border-0 border-white ">
@@ -466,7 +468,6 @@
                 <td colspan=2>$ ${totalPrice}</td>
               </tr>
             `;
-          // console.log(calcTable.innerHTML);
         };
 
         // calling update calc table at data fetch
