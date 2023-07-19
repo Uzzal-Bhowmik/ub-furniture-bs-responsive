@@ -34,6 +34,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+
+    <!-- toastify css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
   </head>
 
   <body class="py-5">
@@ -63,31 +67,31 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li class="nav-item active">
-                <a class="nav-link text-dark" aria-current="page" href="#home"
+              <li class="nav-item">
+                <a class="nav-link text-dark hover-border active" aria-current="page" href="#home"
                   >Home</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="#products"
+                <a class="nav-link text-dark fw-semibold hover-border" href="#products"
                   >Products</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="cart.html"
+                <a class="nav-link text-dark fw-semibold hover-border" href="cart.html"
                   >My Cart</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="#testimonial"
+                <a class="nav-link text-dark fw-semibold hover-border" href="#testimonial"
                   >Reviews</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="#faqs">Faqs</a>
+                <a class="nav-link text-dark fw-semibold hover-border" href="#faqs">Faqs</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="#contact"
+                <a class="nav-link text-dark fw-semibold hover-border" href="#contact"
                   >Contact Us</a
                 >
               </li>
@@ -815,7 +819,7 @@
         <div>
           <h1>LET'S STAY IN TOUCH</h1>
           <p>Get updates on sales, specials and more</p>
-          <form action="registration-msg.php" method="post" class="">
+          <form action="registration-msg.php" method="post" class="" id="contact-form">
             <div class="row g-3 align-items-center mb-2">
               <div class="col-auto">
                 <input
@@ -881,8 +885,8 @@
       <!-- footer end -->
     </main>
 
-    <!-- custom javascript -->
-    <script src="script.js"></script>
+    <!-- toastify script -->
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
     <!-- bootstrap script  -->
     <script
@@ -895,5 +899,10 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
+
+    <!-- custom javascript -->
+    <script src="script.js"></script>
+
+    
   </body>
 </html>

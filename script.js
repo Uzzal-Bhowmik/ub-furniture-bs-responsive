@@ -17,7 +17,7 @@ window.onscroll = () => {
 };
 
 // navbar link active indicator
-let navItem = document.getElementsByClassName("nav-item");
+let navItem = document.getElementsByClassName("nav-link");
 
 for (let item of navItem) {
   item.addEventListener("click", () => {
@@ -44,10 +44,20 @@ const changeCartIconNum = () => {
   for (let key in localstorage) {
     totalCartItem += parseInt(localStorage.getItem(key));
   }
-  console.log(totalCartItem);
   cartIconField.value = totalCartItem;
 };
 changeCartIconNum();
+
+// toastify initialization
+var notyf = new Notyf({
+  duration: 2500,
+  dismissible: true,
+  position: {
+    x: 'right',
+    y: 'top'
+  },
+});
+
 
 for (let btn of cartBtn) {
   btn.addEventListener("click", (e) => {
@@ -65,19 +75,8 @@ for (let btn of cartBtn) {
     e.target.children[0].classList.add("bi-check2-circle");
     e.target.children[0].classList.add("bg-success");
 
-    // added to cart popup
-    let cartMsgCon = document.getElementById("cart-msg-container");
-    cartMsgCon.innerHTML += `<div class="cart-msg py-2 mt-2 " id="cart-msg">
-                <div><i class="text-success">Successfully Added To Cart!</i></div>
-                <div class="row w-100 pt-3 fs-4 mx-auto text-dark">
-                    <div class="col-md-8">${
-                      e.target.closest("div.product").children[1].innerText
-                    }</div>
-            <div class="col-md-4">$ <span>${e.target
-              .closest("div.product")
-              .children[2].innerText.slice(1, 6)}</span></div>
-          </div>
-        </div>`;
+    // show added to cart toast
+    notyf.success(`${itemName} was successfully added to cart!`);
 
     setTimeout(() => {
       e.target.children[0].classList.remove("bi-check2-circle");
@@ -86,10 +85,7 @@ for (let btn of cartBtn) {
       e.target.children[0].classList.add("bi-cart3");
       e.target.children[0].classList.add("bg-danger");
 
-      if (document.querySelector(".cart-msg")) {
-        document.querySelector(".cart-msg").remove();
-      }
-    }, 4000);
+    }, 2500);
   });
 }
 
@@ -106,3 +102,29 @@ const addToLS = (item) => {
     localStorage.setItem(item, newValue);
   }
 };
+
+
+// submitting contact form to formspree
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.getElementById("contact-form");
+
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const firstName = form.user_fname.value;
+    const lastName = form.user_lname.value;
+    const email = form.user_email.value;
+
+    fetch('https://formspree.io/f/xnqykrqq', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email })
+    })
+
+
+    form.submit();
+  })
+})

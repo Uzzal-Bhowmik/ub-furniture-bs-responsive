@@ -44,14 +44,28 @@
         border-bottom: 2px solid transparent;
         transition: all 0.2s ease-in-out;
         margin-right: 1px;
+        position: relative;
       }
-      .nav-item.active,
-      .nav-item:hover {
+      .nav-link.active {
         border-bottom: 2px solid rgb(248, 178, 2);
       }
       .nav-link {
         font-family: "Unbounded", cursive;
       }
+      .hover-border::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        border-bottom: 2px solid rgb(248, 178, 2);
+        transition: all .4s ease-in-out;
+      }
+
+      .nav-item:hover .hover-border::before {
+        width: 100%;
+      }
+
       #cart-icon {
         position: relative;
       }
@@ -168,7 +182,7 @@
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a
-                  class="nav-link text-dark fw-semibold"
+                  class="nav-link text-dark fw-semibold hover-border"
                   aria-current="page"
                   href="index.html#home"
                   >Home</a
@@ -176,30 +190,30 @@
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link text-dark fw-semibold"
+                  class="nav-link text-dark fw-semibold hover-border"
                   href="index.html#products"
                   >Products</a
                 >
               </li>
-              <li class="nav-item active">
-                <a class="nav-link text-dark fw-semibold" href="cart.html"
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-semibold hover-border active" href="cart.html"
                   >My Cart</a
                 >
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link text-dark fw-semibold"
+                  class="nav-link text-dark fw-semibold hover-border"
                   href="index.html#testimonial"
                   >Reviews</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="#faqs">Faqs</a>
+                <a class="nav-link text-dark fw-semibold hover-border" href="#faqs">Faqs</a>
               </li>
 
               <li class="nav-item">
                 <a
-                  class="nav-link text-dark fw-semibold"
+                  class="nav-link text-dark fw-semibold hover-border"
                   href="index.html#contact"
                   >Contact Us</a
                 >
@@ -259,7 +273,9 @@
         </h2>
       </div>
       <div class="body py-4">
-        <div id="container" class="row g-4 w-100 mx-auto"></div>
+        <!-- contains products or no items found msg -->
+        <div id="container" class="row g-4 p-4"></div>
+
         <div id="calculation" class="p-2">
           <div id="table-and-button">
             <table
@@ -453,7 +469,7 @@
           // console.log(calcTable.innerHTML);
         };
 
-        // calling update calc tabel at data fetch
+        // calling update calc table at data fetch
         updateCalcTable();
 
         let con = document.getElementById("container");
@@ -466,7 +482,7 @@
               let productName = e.target.closest("div.product").children[1]
                 .children[0].innerText;
 
-              increseLS(productName);
+              increaseLS(productName);
 
               quanBox.value = parseInt(localStorage.getItem(productName));
 
@@ -485,7 +501,12 @@
 
               decreaseLS(productName);
 
-              quanBox.value = parseInt(localStorage.getItem(productName));
+              if(parseInt(quanBox.value) > 1) {
+                quanBox.value = parseInt(localStorage.getItem(productName));
+              }
+              else{
+                quanBox.value = 0;
+              }
 
               // call update calc table function
               updateCalcTable();
@@ -504,7 +525,7 @@
       // local storage functionalities
 
       // increase value in localStorage
-      const increseLS = (itemName) => {
+      const increaseLS = (itemName) => {
         let preValue = parseInt(localStorage.getItem(itemName));
         let newValue = preValue + 1 + "";
 
@@ -519,7 +540,7 @@
           // decrease value if quantity bigger than 1
           item -= 1;
           localStorage.setItem(itemName, item);
-          //
+          
         } else {
           // remove item if quantity 0
           localStorage.removeItem(itemName);
