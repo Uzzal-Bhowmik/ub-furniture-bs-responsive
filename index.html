@@ -35,14 +35,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
 
+    <!-- animation on scroll library -->
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- toastify css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
   </head>
 
   <body class="py-5">
-    <!-- add to cart msg -->
-    <div id="cart-msg-container"></div>
 
     <header>
       <!-- navigation bar start  -->
@@ -172,10 +173,10 @@
               impression out. Power is lived means oh every in we quiet.
             </p>
             <div class="pt-3 top-buttons">
-              <button class="btn btn-warning py-3 px-4 me-3 text-white">
+              <button class="btn btn-warning py-3 px-4 me-3 text-white animate__animated animate__fadeInLeft animate__delay-1s">
                 START SHOPPING
               </button>
-              <button class="btn btn-outline-warning py-3 px-4">
+              <button class="btn btn-outline-warning py-3 px-4 animate__animated animate__fadeInLeft animate__delay-2s">
                 Shop On A Budget
               </button>
             </div>
@@ -193,7 +194,7 @@
 
     <main>
       <!-- clients section start  -->
-      <section class="container-md clients mx-auto">
+      <section class="container-md clients mx-auto" data-aos="fade-up">
         <div class="title d-flex justify-content-center my-3">
           <h6 class="fw-bolder">SOME OF OUR TRUSTED CLIENTS</h6>
         </div>
@@ -222,7 +223,7 @@
       <!-- clients section end -->
 
       <!-- furniture types section start  -->
-      <section class="container-fluid my-5">
+      <section class="container-fluid my-5" data-aos="fade-up">
         <div class="row">
           <div class="col-md-6 col-12 d-flex align-items-center bg-info p-5">
             <div>
@@ -269,7 +270,7 @@
       </div>
 
       <!-- Products section start  -->
-      <section class="container">
+      <section class="container" data-aos="fade-up">
         <!-- product header  -->
         <nav
           id="products"
@@ -315,9 +316,9 @@
         </div>
 
         <!-- products  -->
-        <section class="container-md">
+        <section class="container-md" data-aos="fade-up">
           <div class="row ms-3 ms-md-0">
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-once="true">
               <div
                 class="product border border-warning p-3 rounded-3"
                 style="
@@ -353,7 +354,7 @@
               </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-once="true">
               <div
                 class="product border border-warning p-3 rounded-3"
                 style="
@@ -389,7 +390,7 @@
               </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-once="true">
               <div
                 class="product border border-warning p-3 rounded-3"
                 style="
@@ -425,7 +426,7 @@
               </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="fade-up"  data-aos-once="true">
               <div
                 class="product border border-warning p-3 rounded-3"
                 style="
@@ -461,7 +462,7 @@
               </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-once="true">
               <div
                 class="product border border-warning p-3 rounded-3"
                 style="
@@ -497,7 +498,7 @@
               </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-once="true">
               <div
                 class="product border border-warning p-3 rounded-3"
                 style="
@@ -536,7 +537,7 @@
         </section>
 
         <!-- Load more button  -->
-        <div class="d-grid gap-2 col-6 mx-auto">
+        <div class="d-grid gap-2 col-6 mx-auto" data-aos="fade-right">
           <button class="btn btn-outline-danger fs-5 fw-bold" type="button">
             See More ...
           </button>
@@ -545,8 +546,8 @@
       <!-- product section end  -->
 
       <!-- Reviews start  -->
-      <section class="container-md mx-md-auto testimonial" id="testimonial">
-        <div class="client-header my-4">
+      <section class="container-md mx-md-auto testimonial" id="testimonial" data-aos="fade-left">
+        <div class="client-header my-4" data-aos="fade-up">
           <h1 class="fw-bold text-center">
             Happy <span style="color: #fee60c;">Clients Says</span>
           </h1>
@@ -678,23 +679,23 @@
 
       <!-- faq section started -->
       <section class="container-md mb-5" id="faqs">
-        <div class="faq-header">
+        <div class="faq-header" data-aos="fade-up">
           <h1 class="fw-bold text-center">
             Frequently Asked<span style="color: #e66f51;"> Questions</span>
           </h1>
         </div>
 
         <div
-          class="row d-md-flex align-items-md-center justify-content-md-around"
+          class="row d-md-flex align-items-md-center justify-content-md-around" 
         >
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-up">
             <img width="100%" class="p-5 mt-4" src="images/faq2.jpg" alt="" />
           </div>
 
           <!-- item - 1  -->
           <div class="col-lg-6 mb-3">
             <div class="accordion" id="accordionPanelsStayOpenExample">
-              <div class="accordion-item rounded-3">
+              <div class="accordion-item rounded-3" data-aos="fade-up">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                   <button
                     class="accordion-button"
@@ -723,7 +724,7 @@
 
               <!-- items-2  -->
 
-              <div class="accordion-item mt-3 rounded border">
+              <div class="accordion-item mt-3 rounded border" data-aos="fade-up" data-aos-delay="200">
                 <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                   <button
                     class="accordion-button collapsed"
@@ -751,7 +752,7 @@
               </div>
 
               <!-- items-3  -->
-              <div class="accordion-item mt-3 border rounded">
+              <div class="accordion-item mt-3 border rounded" data-aos="fade-up" data-aos-delay="300">
                 <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                   <button
                     class="accordion-button collapsed"
@@ -778,7 +779,7 @@
               </div>
 
               <!-- items-4  -->
-              <div class="accordion-item mt-3 border rounded">
+              <div class="accordion-item mt-3 border rounded" data-aos="fade-up" data-aos-delay="400">
                 <h2 class="accordion-header" id="panelsStayOpen-headingfour">
                   <button
                     class="accordion-button collapsed"
@@ -816,6 +817,7 @@
         id="contact"
         style="height: 300px;"
         class="container contact my-5 rounded-3 d-flex justify-content-center align-items-center border"
+        data-aos="fade-up"
       >
         <div>
           <h1>LET'S STAY IN TOUCH</h1>
@@ -888,6 +890,14 @@
 
     <!-- toastify script -->
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <!-- animation on scroll library script -->
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init({
+          duration: 700
+        });
+      </script>
 
     <!-- bootstrap script  -->
     <script
