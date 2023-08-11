@@ -30,7 +30,7 @@ i {
     /* border-bottom: 2px solid transparent; */
 }
 
-.nav-link.active {
+.nav-link.active:not(#navbarDropdownMenuLink) {
     border-bottom: 2px solid rgb(248, 178, 2) !important;
 }
 

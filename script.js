@@ -21,12 +21,21 @@ let navItem = document.getElementsByClassName("nav-link");
 
 for (let item of navItem) {
   item.addEventListener("click", () => {
+
+    // removing active from previous nav item
     for (let singleItem of navItem) {
       if (singleItem.classList.contains("active")) {
         singleItem.classList.remove("active");
       }
     }
-    item.classList.add("active");
+
+    // adding active to newly clicked item
+    if (item.classList.contains("dont-activate")) {
+      // do nothing
+    }
+    else {
+      item.classList.add("active");
+    }
   });
 }
 

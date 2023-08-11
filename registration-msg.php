@@ -70,62 +70,42 @@
   </style>
 </head>
 <body>
-    <?php
+  <?php
 
-// Establishting connection with database
-$conn = mysqli_connect("localhost", "root", "", "dpi");
+    // Receiving input data
+    $fname = $_POST["user_fname"];
+    $lname = $_POST["user_lname"];
+    $email = $_POST["user_email"];
 
-if(!$conn) {
-    die("Error: Could not be connected. ".mysqli_connect_error());
-}
-
-
-// Receiving input data
-$fname = $_POST["user_fname"];
-$lname = $_POST["user_lname"];
-$email = $_POST["user_email"];
-
-
-// Input data to the db-table
-$sql = "INSERT INTO mistrium_reg_customers (first_name, last_name, email)
-        VALUES ('$fname', '$lname', '$email')"; 
-
-// Check if data is added successfully
-if(mysqli_query($conn, $sql)) {
     echo "
-   <div class='card animate__animated animate__fadeInUp'>
-      <div
-        style='
-          border-radius: 200px;
-          height: 200px;
-          width: 200px;
-          background: #f8faf5;
-          margin: 0 auto 1rem auto;
-        '
-      >
-        <i class='bi bi-check2-all'></i>
-      </div>
-      <h1>Success</h1>
-      <p>
-        Hey, <span class='text-warning fw-bold'>$fname $lname!</span> <br/>
-        Thanks For Being A Valuable Member ❤️
-      </p>
+      <div class='card animate__animated animate__fadeInUp'>
+          <div
+            style='
+              border-radius: 200px;
+              height: 200px;
+              width: 200px;
+              background: #f8faf5;
+              margin: 0 auto 1rem auto;
+            '
+          >
+            <i class='bi bi-check2-all'></i>
+          </div>
+          <h1>Success</h1>
+          <p>
+            Hey, <span class='text-success fw-bold'>$fname $lname!</span> <br/>
+            Thanks For Being A Valuable Member ❤️
+          </p>
 
-      <div class='mt-5'>
-        <a href='index.html#products'
-          ><button class='btn btn-outline-success fw-bold continue-btn'>
-            Continue Shopping
-          </button></a
-        >
-      </div>
-    </div>
-    
-    ";
-}
-
-// Closing connection
-mysqli_close($conn);
-
-?>
+          <div class='mt-5'>
+            <a href='index.html#products'
+              ><button class='btn btn-outline-success fw-bold continue-btn'>
+                Continue Shopping
+              </button></a
+            >
+          </div>
+        </div>
+        
+        ";
+  ?>
 </body>
 </html>
