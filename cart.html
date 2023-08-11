@@ -24,6 +24,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Unbounded&display=swap"
       rel="stylesheet"
     />
+     <!-- animate css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <!-- <link rel="stylesheet" href="style.css" /> -->
     <title>My Cart</title>
@@ -229,9 +234,9 @@
                 </a>
               </li>
 
-              <li class="nav-item dropdown border-0">
+              <li class="nav-item border-0">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="nav-link"
                   href="#"
                   id="navbarDropdownMenuLink"
                   data-bs-toggle="dropdown"
@@ -245,16 +250,6 @@
                     alt=""
                   />
                 </a>
-                <div
-                  class="dropdown-menu dropdown-menu-right text-right"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="cart.html">My Cart</a>
-                  <a class="dropdown-item" href="#">Favourites</a>
-                  <a class="dropdown-item" href="#">Order History</a>
-                  <a class="dropdown-item" href="#">Log Out</a>
-                </div>
               </li>
             </ul>
           </div>
@@ -265,7 +260,7 @@
 
     <section>
       <div>
-        <h2>
+        <h2 class="animate__animated animate__bounceInDown">
           <span class="title"
             ><i class="bi bi-cart-check fs-2 text-success"></i> Cart
             Items:</span
@@ -549,5 +544,6 @@
         }
       };
     </script>
+
   </body>
 </html>
